@@ -31,9 +31,14 @@ public class App {
     		BreweryList br = new BreweryList();
     		
     		Map<String, Object> model = new HashMap<String, Object>();
-    		model.put("beers", b.search(req.queryParams("query")));
-    		model.put("breweries", br.search(req.queryParams("query")));
-    		    		
+    		if(searchType.equals("beers") || searchType.equals("all")){
+    			model.put("beers", b.search(req.queryParams("query")));
+    		}
+    		
+    		if(searchType.equals("breweries") || searchType.equals("all")){
+    			model.put("breweries", br.search(req.queryParams("query")));
+    		}
+    		
     		return new ModelAndView(model, "search.vm");
     		
     	}, engine);

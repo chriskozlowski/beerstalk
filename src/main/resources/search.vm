@@ -1,6 +1,7 @@
 #parse("header.vm")
 
 <h1>Search Results</h1>
+		#if($beers)
 		<h2>Beers</h2>
 			
 		<table class="table table-striped">
@@ -25,6 +26,8 @@
 				#end
 			</tbody>
 		</table>
+		#end
+		#if($breweries)
 		<h2>Breweries</h2>
 		
 		<table class="table table-striped">
@@ -45,5 +48,5 @@
 				#end
 			</tbody>
 		</table>
-				
+		#end
 #parse("footer.vm")
