@@ -1,0 +1,53 @@
+#parse("header.vm")
+
+<h1>Search Results</h1>
+	#if($beers.length() > 0)
+		<h2>Beers</h2>
+			
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Description</th>
+					<th>ABV</th>
+					<th>Brewery</th>
+				</tr>
+			</thead>
+			<tbody>
+				#foreach( $beer in $beers )
+				    <tr>
+				    	<td>$beer.id</td>
+				    	<td>$beer.name</td>
+				    	<td>$beer.description</td>
+				    	<td>$beer.abv</td>
+				    	<td>$beer.brewery.name</td>
+			    	</tr>
+				#end
+			</tbody>
+		</table>
+	#end
+	#if($breweries.length > 0)
+		<h2>Breweries</h2>
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>URL</th>
+				</tr>
+			</thead>
+			<tbody>
+				#foreach( $brewery in $breweries )
+				    <tr>
+				    	<td>$brewery.id</td>
+				    	<td>$brewery.name</td>
+				    	<td><a href="$brewery.url">$brewery.url</a></td>
+			    	</tr>
+				#end
+			</tbody>
+		</table>
+	#end
+				
+#parse("footer.vm")
